@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: DockerFile
+    volumes:
+      - ./app:/workspace
+    environment:
+      - HUGGINGFACE_HUB_TOKEN=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
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt &&
+             uvicorn main:app --host 0.0.0.0 --port 8000"
+
+  mongodb:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  qdrant:
+    image: qdrant/qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+  clearml:
+    image: allegroai/clearml:latest
+    environment:
+      - CLEARML_SERVER_HOST=http://localhost:8080
+      - CLEARML_WEB_HOST=http://localhost:8080
+      - CLEARML_API_HOST=http://localhost:8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - clearml_data:/mnt/data
+
+volumes:
+  mongo_data:
+  qdrant_data:
+  clearml_data:
