@@ -47,4 +47,4 @@ Custom trained LLama 3.1 Model using QnA pairs we created by asking for intensiv
 ## 5. Deploying the App Milestone
 Deployed the Gradio Application using LLama3.1 for the generation/LLM model(Finetuned) and OpenAI GPT-3.5 for the embedding model.
 
-![All Ingested URLs into MongoDB]("Screenshots/gradioImage.png")
+![Example Output for Gradio App]("Screenshots/gradioImage.png")
