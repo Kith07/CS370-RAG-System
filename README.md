@@ -42,5 +42,7 @@ We succesfully implemented this pipeline to create featurized vectors from our r
 ![All Ingested URLs into MongoDB]("Screenshots/qdrant_ingest.png")
 
 ## 4. Finetuning Milestone
+Custom trained LLama 3.1 Model using QnA pairs we created by asking for intensive questions about the subdomains using a GPT model. 
 
 ## 5. Deploying the App Milestone
+Deployed the Gradio Application using LLama3.1 for the generation/LLM model(Finetuned) and OpenAI GPT-3.5 for the embedding model.
